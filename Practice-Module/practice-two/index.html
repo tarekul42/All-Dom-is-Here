@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practice one</title>
+    <!-- tailwind css file is here -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <h1 class="text-center text-5xl mt-6">
+      Price : <span id="maximum-Price">1000</span>
+    </h1>
+    <h2 class="text-center text-3xl mt-6">
+      <button class="bg-amber-400 px-2 py-2 rounded-md" id="coupon-button">
+        Coupon</button
+      ><input class="ml-2 P-2 border-8" type="text" id="CouponCodeInput" placeholder="DISC30" />
+    </h2>
+    <h2 class="text-center text-3xl mt-6">
+      <button class="bg-green-600 px-4 py-2 rounded-md" id="apply-button">
+        Apply</button
+      ><span class="px-6" id="price-discount"> 30%</span>
+    </h2>
+    <h3 class="text-center text-3xl mt-6">
+      Please Pay :
+      <span class="underline underline-offset-2 text-rose-700" id="total-price"
+        >1000</span
+      >
+    </h3>
+    <!-- js file is here -->
+    <!-- <script src="js/practice-two.js"></script> -->
+    <!-- my last javascript file is here -->
+    <script>
+      document.getElementById('apply-button').addEventListener('click', function(){
+        // console.log("im clicked");
+        // take the coupon code input
+        const CouponCode = document.getElementById('CouponCodeInput');
+        const CouponCodeInputValue = CouponCode.value;
+        if(CouponCodeInputValue === "DISC30"){
+          const takeMainPriceString = document.getElementById('maximum-Price').innerText;
+            const takeMainPrice = parseFloat(takeMainPriceString);
+
+            const discount = (30*takeMainPrice)/100;
+            const afterDiscount = takeMainPrice - discount;
+
+            document.getElementById('total-price').innerText = afterDiscount;
+        }
+        else{
+          alert('Falto try na koira ja ache ta try kor')
+        }
+        CouponCode.value = '';
+      })
+    </script>
+  </body>
+</html>

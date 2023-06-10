@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practice one</title>
+    <!-- tailwind css file is here -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- font awesome link -->
+    <script src="https://kit.fontawesome.com/171eaca259.js" crossorigin="anonymous"></script>
+    <style>
+        h1{
+            text-align: center;
+            font-size: calc(22);
+        }
+    </style>
+  </head>
+  <body>
+    
+    <header class="bg-blue-300 w-3/4 mx-auto rounded-md">
+        <h1 class="text-center text-5xl p-4 mt-8" id="falto">My Text Editor</h1>
+        <div class="bg-blue-200">
+            <!-- parent of three child divission -->
+            <div class="grid grid-cols-3 justify-between px-4">
+                <!-- left div -->
+            <div>
+                <i class="fa-solid fa-bold p-4 cursor-pointer" id="bold"></i>
+                <i class="fa-solid fa-italic p-4 cursor-pointer" id="italic"></i>
+                <i class="fa-solid fa-underline p-4 cursor-pointer" id="underline"></i>
+            </div>
+            <!-- middle div -->
+            <div class="text-center">
+                <i class="fa-solid fa-align-left p-4 cursor-pointer" id="left"></i>
+                <i class="fa-solid fa-align-center p-4 cursor-pointer" id="center"></i>
+                <i class="fa-solid fa-align-right p-4 cursor-pointer" id="right"></i>
+                <i class="fa-solid fa-align-justify p-4 cursor-pointer" id="justify"></i>
+            </div>
+            <!-- right div -->
+            <div class="text-end">
+                <input type="number" name="" id="fontSize" class=" w-10 cursor-pointer align-middle" id="fontSize" >
+                <i class="fa-solid fa-font p-4 cursor-pointer" id="font"></i>
+                <input type="color"class="cursor-pointer mx-4 align-middle" id="color">
+            </div>
+            </div>
+
+        </div>
+        <hr>
+        <section class="text-center align-middle w-11/12 mx-auto">
+            <textarea name="" id="textarea" w-full cols="120" rows="20" class=" my-2 p-2 w-full h-96 min-h-full"></textarea>
+        </section>
+    </header>
+    <h1>Bangladesh</h1>
+    <!-- js file is here -->
+    <!-- <script src="js/practice-three.js"></script> -->
+    <!-- my javascript file is here -->
+    <script>
+        document.getElementById('bold').addEventListener('click', function(){
+            document.getElementById('textarea').style.fontWeight = 'bold';
+        })
+        document.getElementById('italic').addEventListener('click', function(){
+            document.getElementById('textarea').style.fontStyle = 'italic';
+        })
+        document.getElementById('underline').addEventListener('click', function(){
+            document.getElementById('textarea').style.textDecoration = 'underline';
+        })
+        document.getElementById('left').addEventListener('click', function(){
+            document.getElementById('textarea').style.textAlign = 'left';
+        })
+        document.getElementById('center').addEventListener('click', function(){
+            document.getElementById('textarea').style.textAlign = 'center';
+        })
+        document.getElementById('right').addEventListener('click', function(){
+            document.getElementById('textarea').style.textAlign = 'right';
+        })
+        document.getElementById('justify').addEventListener('click', function(){
+            document.getElementById('textarea').style.textAlign = 'justify';
+        })
+        document.getElementById('fontSize').addEventListener('change', function(){
+            const takeTheNumber = document.getElementById('fontSize').value;
+            document.getElementById('textarea').style.fontSize =takeTheNumber+'px';
+        })
+        document.getElementById('color').addEventListener('change', function(){
+            const takeColor = document.getElementById('color').value;
+            document.getElementById('textarea').style.color =takeColor;
+        })
+    </script>
+  </body>
+</html>
+<!-- lorem500 -->
+<!-- lorem500  -->

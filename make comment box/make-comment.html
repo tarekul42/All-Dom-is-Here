@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make a comment box</title>
+</head>
+<body>
+    <h1>Please add your comment</h1>
+    <div id="parent-div-of-paragraph-tag">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam dolor, ad ea est eum quibusdam necessitatibus impedit velit neque, temporibus voluptatibus aspernatur voluptatem nobis aliquam dicta doloremque facilis obcaecati voluptates.</p>
+        <p>Sint voluptates voluptatum eveniet eius delectus aspernatur. Quas amet facere quos architecto corrupti, iusto cumque, beatae reiciendis natus cum eius, voluptate maiores explicabo. Laborum, placeat iusto reiciendis ex voluptatem assumenda.</p>
+        <p>Odit sunt molestias totam dicta facere eligendi eveniet corrupti quas impedit cum, ullam magni ab at vitae, itaque dignissimos blanditiis est minus fugiat ea asperiores fuga sint atque! Minima, expedita.</p>
+
+    </div>
+    <div>
+        <textarea name="comment" id="comment-box" cols="60" rows="5"></textarea>
+        <br>
+        <button id="comment-button">Submit</button>
+    </div>
+    <!-- js file is here -->
+    <script>
+        document.getElementById('comment-button').addEventListener('click', function(){
+            // take text area value as a comment
+            const commentBox = document.getElementById('comment-box');
+            const newComment = commentBox.value;
+            // create element
+            const takeParentDivOfParagraph = document.getElementById('parent-div-of-paragraph-tag');
+            const p = document.createElement('p');
+            // add text to element
+            p.innerText = newComment;
+            takeParentDivOfParagraph.appendChild(p);
+
+            commentBox.value = ' ';
+
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List</title>
+    <!-- bootstrap cdn  -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <h1 class="text-center mt-5">To Do List</h1>
+    <div class="text-center container w-100 m-auto mt-5">
+      <div class="input-group mt-5">
+        <input id="input-value" class="form-control" aria-label="With textarea"></input>
+        <button id="input-btn" class="btn btn-danger ms-1">Add Items</button>
+
+      </div>
+      <div class="mt-5">
+        <table id="table" class="table">
+          <thead>
+            <tr>
+              <th scope="col">Number</th>
+              <th scope="col">Description</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody id="content-container">
+            <!-- <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+              </tr> -->
+          </tbody>
+        </table>
+        <button id="clear-btn" class="btn btn-danger px-4">Clear All</button>
+      </div>
+    </div>
+    <!-- js script  -->
+    <!-- <script src="./todo.js"></script> -->
+
+    <!-- my javascript code is here -->
+
+    <script>
+      value = 0;
+
+      document.getElementById('input-btn').addEventListener('click', function(){
+
+        const takeInputValue = document.getElementById('input-value').value;
+
+        value ++;
+
+        const tr = document.createElement('tr')
+        tr.innerHTML = `
+                <th scope="row">${value}</th>
+                <td>${takeInputValue}</td>
+                <td>
+                <button class="btn btn-danger deletebtn">Delete</button>
+                <button class="btn btn-primary">Done</button>
+                </td>
+        `
+        const takeContainer = document.getElementById('content-container')
+        takeContainer.appendChild(tr)
+
+        const elements = document.getElementsByClassName('deletebtn')
+
+        for (let element of elements){
+          element.addEventListener('click', function(){
+            const parent = this.parentElement.parentElement;
+            parent.remove();
+
+        })
+      }
+          
+        document.getElementById('input-value').value = '';
+
+        document.getElementById('clear-btn').addEventListener('click', function(){
+          // console.log("i got this button");
+          document.getElementById('content-container').style.display = 'none'
+        });
+      })
+    </script>
+
+
+
+  </body>
+</html>
